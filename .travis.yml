@@ -1,0 +1,21 @@
+os:
+  - linux
+
+language: php
+
+php:
+  - '7.1'
+  
+before_script:
+  - composer self-update
+  - composer install --no-interaction
+  - cp .env.travis .env
+
+script:
+  - vendor/bin/phpunit
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_API_KEY
+  app: ezcon-api

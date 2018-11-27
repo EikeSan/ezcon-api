@@ -49,8 +49,14 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
+        ],
+        "post-install-cmd": [ 
+            "php artisan clear-compiled",
+            "chmod -R 777 storage", 
+            "php artisan passport:keys"
         ]
     },
+    
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

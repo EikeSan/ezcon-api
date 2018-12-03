@@ -41,7 +41,10 @@ class UserController extends Controller
         ]);
         
         if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json([
+                'status' => 'ERRO_VALIDACAO',
+                'error'=>$validator->errors()
+                ], 422);            
         }
         
         $input = $request->all(); 
@@ -62,6 +65,6 @@ class UserController extends Controller
      */ 
     public function details() { 
         $user = Auth::user(); 
-        return response()->json([$user], $this-> successStatus); 
+        return response()->json($user, $this-> successStatus); 
     } 
 }

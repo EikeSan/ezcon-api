@@ -24,6 +24,7 @@ before_script:
   - psql -c 'create database ezcon;' -U postgres
   - php artisan key:generate
   - php artisan migrate
+  - php artisan passport:install
 
 
 script:

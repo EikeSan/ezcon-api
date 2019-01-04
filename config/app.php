@@ -164,6 +164,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
+        //Swagger 
+        L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Application Service Providers...

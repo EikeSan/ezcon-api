@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 Route::post('signIn', 'API\UserController@login');
 Route::post('signUp', 'API\UserController@register');
 
+Route::get('/', function(){
+    return redirect('api/documentation');
+});
+
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('users/me', 'API\UserController@details');
 });

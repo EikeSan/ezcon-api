@@ -1,0 +1,208 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "EzCon API",
+        "description": "API to manage condominous, \n to get the authorization working, put `Bearer your-token-in-authorize-field`, \n whitout the *Bearer* you will not be auhtorized to use the services",
+        "contact": {
+            "email": "eikesantz@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://ezcon-api.herokuapp.com/",
+            "description": "API hosted on Heroku"
+        },
+        {
+            "url": "http://ezcon-api.local/",
+            "description": "API local"
+        }
+    ],
+    "paths": {
+        "/users/me": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get logged user information",
+                "description": "Returns user's iformotation",
+                "operationId": "getProjectsList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/signIn": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User's login",
+                "description": "Make user's login and retrive the access token",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "user@email.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "402": {
+                        "description": "Missing some parameter"
+                    }
+                }
+            }
+        },
+        "/signUp": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User's registration",
+                "description": "Create a new user",
+                "operationId": "registerUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirmPassword": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "user",
+                                    "email": "user@email.com",
+                                    "password": "123456",
+                                    "confirmPassword": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "402": {
+                        "description": "Missing some parameter"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "title": "User model",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "User's id",
+                        "type": "integer",
+                        "example": "8"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "User's name",
+                        "type": "string",
+                        "example": "user"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "User's email",
+                        "type": "string",
+                        "example": "user@email.com"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "User's password",
+                        "type": "string",
+                        "example": "123456"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "description": "Use the Auth routes and recieve your accessToken",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "https"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Operations to register and authorize the user"
+        },
+        {
+            "name": "User",
+            "description": "Operations about user"
+        }
+    ]
+}

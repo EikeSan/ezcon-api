@@ -28,12 +28,20 @@ class ControllerSWG extends BaseController
 
 /**
  *  @OA\Server(
- *      url="https://ezcon-api.herokuapp.com/",
- *      description="API hosted on Heroku"
+ *      url="http://ezcon-api.herokuapp.com/",
+ *      description="API hosted on Heroku (https)"
  * ),
- * @OA\Server(
+ *  @OA\Server(
+ *      url="http://ezcon-api.herokuapp.com/",
+ *      description="API hosted on Heroku (http)"
+ * ),
+ *  @OA\Server(
  *      url="http://ezcon-api.local/",
  *      description="API local"
+ * ),
+ *  @OA\Server(
+ *      url="http://localhost",
+ *      description="API localhost"
  * )
  */
 

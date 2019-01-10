@@ -20,6 +20,10 @@
         {
             "url": "http://ezcon-api.local/",
             "description": "API local"
+        },
+        {
+            "url": "http://localhost",
+            "description": "API localhost"
         }
     ],
     "paths": {

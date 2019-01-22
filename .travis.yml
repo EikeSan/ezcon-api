@@ -15,12 +15,6 @@ install:
 
 before_script:
   - cp .env.travis .env
-  - pear install pear/PHP_CodeSniffer
-  - phpenv rehash
-  - nvm install 8
-  - npm install npm@latest -g
-  - npm install -g jshint
-  - npm install
   - psql -c 'create database ezcon;' -U postgres
   - php artisan key:generate
   - php artisan migrate

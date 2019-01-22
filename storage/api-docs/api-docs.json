@@ -14,16 +14,12 @@
     },
     "servers": [
         {
-            "url": "https://ezcon-api.herokuapp.com/",
-            "description": "API hosted on Heroku"
+            "url": "https://cors-anywhere.herokuapp.com/https://ezcon-api.herokuapp.com/",
+            "description": "API hosted on Heroku (passing by proxy)"
         },
         {
             "url": "http://ezcon-api.local/",
             "description": "API local"
-        },
-        {
-            "url": "http://localhost",
-            "description": "API localhost"
         }
     ],
     "paths": {

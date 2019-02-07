@@ -13,13 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
+// Routes Auth
 Route::post('signIn', 'API\UserController@login');
 Route::post('signUp', 'API\UserController@register');
 
+//Return swagger as home page
 Route::get('/', function(){
     return redirect('api/documentation');
 });
 
+//Protected routes
 Route::group(['middleware' => 'auth:api'], function(){
+    
+    // User's Routes
     Route::get('users/me', 'API\UserController@details');
 });

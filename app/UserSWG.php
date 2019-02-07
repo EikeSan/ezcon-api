@@ -12,7 +12,7 @@ class UserSWG extends Authenticatable
 /**
  * @OA\Schema(
  *     schema="User",
- *     title="User model",
+ *     title="User",
  *     description="User model",
  *     @OA\Property(
  *      property="id",

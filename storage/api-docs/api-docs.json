@@ -153,6 +153,31 @@
     },
     "components": {
         "schemas": {
+            "Apartment": {
+                "title": "Apartment",
+                "description": "Apartment model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "Apartment's id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "number": {
+                        "title": "number",
+                        "description": "Apartment's number",
+                        "type": "integer",
+                        "example": "104"
+                    },
+                    "block": {
+                        "title": "block",
+                        "description": "Apartment's block",
+                        "type": "string",
+                        "example": "A"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
                 "title": "User model",
                 "description": "User model",

@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "EzCon API",
-        "description": "API to manage condominous, \n to get the authorization working, put `Bearer your-token-in-authorize-field`, \n whitout the *Bearer* you will not be auhtorized to use the services",
+        "description": "API to manage condominous, \r\n to get the authorization working, put `Bearer your-token-in-authorize-field`, \r\n whitout the *Bearer* you will not be auhtorized to use the services",
         "contact": {
             "email": "eikesantz@gmail.com"
         },
@@ -18,7 +18,7 @@
             "description": "API hosted on Heroku (passing by proxy)"
         },
         {
-            "url": "http://ezcon-api.local/",
+            "url": "http://ezcon-api.local:8000/",
             "description": "API local"
         }
     ],
@@ -179,7 +179,7 @@
                 "type": "object"
             },
             "User": {
-                "title": "User model",
+                "title": "User",
                 "description": "User model",
                 "properties": {
                     "id": {

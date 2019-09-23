@@ -46,7 +46,7 @@ class UserTest extends TestCase {
             ->assertStatus(422)
             ->assertJson(
             [
-                'status' => 'ERRO_VALIDACAO'
+                'status' => 'ERROR_VALIDATION'
             ]);
     }
 

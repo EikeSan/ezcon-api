@@ -27,4 +27,6 @@ Route::group(['middleware' => 'auth:api'], function(){
     
     // User's Routes
     Route::get('users/me', 'API\UserController@details');
+    Route::post('users/roles', 'API\UserController@addRoles');
+    Route::delete('users/roles', 'API\UserController@removeRoles');
 });

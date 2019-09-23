@@ -18,7 +18,7 @@
             "description": "API hosted on Heroku (passing by proxy)"
         },
         {
-            "url": "http://ezcon-api.local:8000/",
+            "url": "http://ezcon-api.local/",
             "description": "API local"
         }
     ],
@@ -30,7 +30,7 @@
                 ],
                 "summary": "Get logged user information",
                 "description": "Returns user's iformotation",
-                "operationId": "getProjectsList",
+                "operationId": "getUsersList",
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -43,6 +43,132 @@
                     },
                     "401": {
                         "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/users/roles": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add role to a user",
+                "description": "Returns user with roles",
+                "operationId": "addUserRoles",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "roles": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remove role from user",
+                "description": "Returns user with roles",
+                "operationId": "removeUserRoles",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "roles": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Not Found"
                     }
                 },
                 "security": [
@@ -174,6 +300,31 @@
                         "description": "Apartment's block",
                         "type": "string",
                         "example": "A"
+                    }
+                },
+                "type": "object"
+            },
+            "Role": {
+                "title": "Role",
+                "description": "Role model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "Role's id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "Role's name",
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "Role's description",
+                        "type": "string",
+                        "example": "Administrator can do everything"
                     }
                 },
                 "type": "object"

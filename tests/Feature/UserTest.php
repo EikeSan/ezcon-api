@@ -68,9 +68,8 @@ class UserTest extends TestCase {
         
         $request = $this->json('GET','users/me',[],$token);
 
-        $request
-            ->assertStatus(200)
-            ->assertJson(['name' => 'teste']);
+        $request->assertStatus(200)
+            ->assertJsonFragment(['id' => $user->id, 'name' => $user->name]);
     }
 
     public function testShouldUnauthorizeUser(){
